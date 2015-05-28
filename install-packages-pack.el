@@ -21,6 +21,7 @@
 
 (require 'package)
 
+
 (unless package--initialized ;; the first time we hit this (typically in emacs-live)
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
@@ -60,7 +61,7 @@
                                                        ("melpa"     . "http://melpa.milkbox.net/packages/")
                                                        ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
                                                        ;; ("tromey"    . "http://tromey.com/elpa/")
-                                                       ("marmalade" . "https://marmalade-repo.org/packages/")
+         ;                                              ("marmalade" . "https://marmalade-repo.org/packages/")
                                                        ))
 
 (provide 'install-packages-pack)
