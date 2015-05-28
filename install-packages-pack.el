@@ -56,8 +56,10 @@
     (--filter (not (package-installed-p it)))
     (mapc #'install-packages-pack/install-pack)))
 
+(setq package-archives '())
+(setq package-check-signature nil)
 (install-packages-pack/update-repositories-archives! '(("org"      . "http://orgmode.org/elpa/")
-                                                       ;; ("gnu"       . "http://elpa.gnu.org/packages/")
+                                                        ("gnu"       . "http://elpa.gnu.org/packages/")
                                                        ("melpa"     . "http://melpa.milkbox.net/packages/")
                                                        ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
                                                        ;; ("tromey"    . "http://tromey.com/elpa/")
