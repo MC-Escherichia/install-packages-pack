@@ -26,9 +26,10 @@
   (package-initialize)
   (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
   (package-refresh-contents)
-  (package-install 'dash))
+  (package-install 'dash)
+  (package-install 'projectile))
 
-(require 'dash)
+  (require 'dash)
 
 (defun install-packages-pack/--filter-repositories (repos archives)
   "Given a list REPOS of couple (repository name, repository url) and a list of ARCHIVES, return the list of not associated entries."
@@ -53,18 +54,18 @@
 (defun install-packages-pack/install-packs (packs)
   "A utility function to help installing a list PACKS of Emacs packages."
   (->> packs
-    (--filter (not (package-installed-p it)))
-    (mapc #'install-packages-pack/install-pack)))
+       (--filter (not (package-installed-p it)))
+       (mapc #'install-packages-pack/install-pack)))
 
-(setq package-archives '())
-(setq package-check-signature nil)
-(install-packages-pack/update-repositories-archives! '(("org"      . "http://orgmode.org/elpa/")
-                                                        ("gnu"       . "http://elpa.gnu.org/packages/")
-                                                       ("melpa"     . "http://melpa.milkbox.net/packages/")
-                                                       ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
-                                                       ;; ("tromey"    . "http://tromey.com/elpa/")
-         ;                                              ("marmalade" . "https://marmalade-repo.org/packages/")
-                                                       ))
+;; (setq package-archives '())
+;; (setq package-check-signature nil)
+;; (install-packages-pack/update-repositories-archives! '(("org"      . "http://orgmode.org/elpa/")
+;;                                                        ("gnu"       . "http://elpa.gnu.org/packages/")
+;;                                                        ("melpa"     . "http://melpa.milkbox.net/packages/")
+;;                                                        ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+;;                                                        ;; ("tromey"    . "http://tromey.com/elpa/")
+;;                                         ;                                              ("marmalade" . "https://marmalade-repo.org/packages/")
+;;                                                        ))
 
 (provide 'install-packages-pack)
 ;;; install-packages-pack.el ends here
